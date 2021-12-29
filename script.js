@@ -8,13 +8,14 @@ computerSelection = computerPlay();
 let playerSelection = 'rock';//window.prompt("Enter: rock or paper or scissors");//
 playerSelection.toLocaleLowerCase();
 
-
+let count;
 
 function playRound(c ,p)
 {
     if(c == "rock" && p == "paper")
         {
             console.log('You win, '+ p+ ' beats '+ c );
+            count+=1;
         }
     else if( c =="rock" && p=="sciccors")
         {
@@ -27,6 +28,7 @@ function playRound(c ,p)
     else if( c =="paper" && p=="sciccors")
         {
             console.log('You win, '+ p + ' beats '+c );
+            count+=1;
         }   
     else if( c =="paper" && p=="rock")
         {
@@ -39,6 +41,7 @@ function playRound(c ,p)
     else if( c =="scissors" && p=="rock")
         {
             console.log('You win, '+ p + ' beats '+c );
+            count+=1;
         }   
         
      
@@ -46,4 +49,9 @@ function playRound(c ,p)
 
 let m = computerSelection;
 let n = playerSelection;
-playRound(m,n)   ;
+
+
+for (let i = 0; i < 5; i++) {
+    playRound(m,n);
+  } 
+console.log("The consolidated no of wins:"+ ${count});
