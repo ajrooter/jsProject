@@ -5,12 +5,13 @@ function computerPlay()
     return randcolor;
 }
 computerSelection = computerPlay();
-let playerSelection = 'rock';//window.prompt("Enter: rock or paper or scissors");//
-playerSelection.toLocaleLowerCase();
+let playerSelection = window.prompt("Enter: rock or paper or scissors");//User is aksed to give rock or paper or scissors
+//limitation could be what user enters, a selexted list of permitted codewords can be included
+playerSelection.toLocaleLowerCase();//
 
-let count;
+let count; // to keep track of the number of user wins
 
-function playRound(c ,p)
+function playRound(c ,p)  // Main function that compares user's choice and computer. ie THE GAME
 {
     if(c == "rock" && p == "paper")
         {
@@ -42,7 +43,10 @@ function playRound(c ,p)
         {
             console.log('You win, '+ p + ' beats '+c );
             count+=1;
-        }   
+        } 
+    else{
+        console.log("You have entered an invalid option")
+    }  
         
      
 } 
@@ -51,7 +55,7 @@ let m = computerSelection;
 let n = playerSelection;
 
 
-for (let i = 0; i < 5; i++) {
+for (let i = 0; i < 5; i++) { //loops  times to indicate that there are  rounds, coudl give user more granularity on the number of games to be played
     playRound(m,n);
   } 
-console.log("The consolidated no of wins:"+ ${count});
+console.log("The consolidated no of wins:"+ ${count});//not sure of correct, let's see
