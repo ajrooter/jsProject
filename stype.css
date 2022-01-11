@@ -1,0 +1,32 @@
+body
+
+.f1,.f3,.f5
+{
+    display: flex;
+    justify-content: center;
+    padding-left: 200px;
+    padding-right: 200px;
+ 
+}
+
+img
+{
+    display: flex;
+    padding-left: 410px;
+    padding-right: 410px;
+    border-bottom: 20px;
+    padding-bottom: 50px;
+}
+
+.f3{
+    justify-content: space-evenly;
+    padding-bottom: 50px;
+}
+
+.btn
+{
+ display: flex;
+ justify-content: space-between;
+ align-content: center;
+
+}
