@@ -4,77 +4,167 @@ function computerPlay()
     let randcolor =  lis[Math.floor(Math.random() * lis.length)];
     return randcolor;
 }
-computerSelection = computerPlay();
-//let playerSelection = window.prompt("Enter: rock or paper or scissors");//User is aksed to give rock or paper or scissors
-//limitation could be what user enters, a selexted list of permitted codewords can be included
-//playerSelection.toLocaleLowerCase();//
+computerSelection = computerPlay()
 
-let count; // to keep track of the number of user wins
+
+
+//to keep track of player score, computer score and the total number of rounds.
+let cscore =0;
+let pscore =0;
+let round = 0;
+//to keep track of player and computer wins
+let pwin = 0;
+let cwin = 0;
+
+
+
 
 function playRound(c ,p)  // Main function that compares user's choice and computer. ie THE GAME
 {
-
         c = computerPlay();
     if(c == "rock" && p == "paper")
         {
-            console.log('You win, '+ p+ ' beats '+ c );
-            count+=1;
+           
+            round+=1;
+            if(round>5)
+            {
+                diplayresult();
+            }
+            let perf = document.querySelector(".result")
+            perf.textContent= 'You win, '+ p+ ' beats '+ c ;
+            pscore+=1;
+            let serf = document.querySelector(".score")
+            serf.textContent = "Player Score: " + pscore + " Computer score: "+ cscore;
+            
         }
     else if( c =="rock" && p=="scissors")
         {
-            console.log('You lose, '+ c + ' beats '+p );
+            round+=1;
+            if(round>5)
+            {
+                diplayresult();
+            }
+            let perf = document.querySelector(".result")
+            perf.textContent= ('You lose, '+ c + ' beats '+p );
+            cscore+=1;
+            let serf = document.querySelector(".score")
+            serf.textContent = "Player Score: " + pscore + " Computer score: "+ cscore;
+           
         }
     else if( c == p)
         {
-            console.log("It's a draw");
+            round+=1;
+            if(round>5)
+            {
+                diplayresult();
+            }
+            let perf = document.querySelector(".result")
+            perf.textContent= ("It's a draw");
+            let serf = document.querySelector(".score")
+            serf.textContent = "Player Score: " + pscore + " Computer score: "+ cscore;
+            
         }
     else if( c =="paper" && p=="scissors")
         {
-            console.log('You win, '+ p + ' beats '+c );
-            count+=1;
+            round+=1;
+            if(round>5)
+            {
+                diplayresult();
+            }
+            let perf = document.querySelector(".result")
+            perf.textContent= ('You win, '+ p + ' beats '+c );
+            pscore+=1;
+            let serf = document.querySelector(".score")
+            serf.textContent = "Player Score: " + pscore + " Computer score: "+ cscore;
+            
+            
         }   
     else if( c =="paper" && p=="rock")
         {
-            console.log('You lose, '+ c + ' beats '+p );
+            round+=1;
+            if(round>5)
+            {
+                diplayresult();
+            }
+            let perf = document.querySelector(".result")
+            perf.textContent= ('You lose, '+ c + ' beats '+p );
+            cscore+=1;
+            let serf = document.querySelector(".score")
+            serf.textContent = "Player Score: " + pscore + " Computer score: "+ cscore;
+            
         }  
     else if( c =="scissors" && p=="paper")
         {
-            console.log('You lose, '+ c + ' beats '+p );
+            round+=1;
+            if(round>5)
+            {
+                diplayresult();
+            }
+            let perf = document.querySelector(".result")
+            perf.textContent= ('You lose, '+ c + ' beats '+p );
+            cscore+=1;
+            let serf = document.querySelector(".score")
+            serf.textContent = "Player Score: " + pscore + " Computer score: "+ cscore;
+           
+            
         }   
     else if( c =="scissors" && p=="rock")
         {
-            console.log('You win, '+ p + ' beats '+c );
-            count+=1;
+            round+=1;
+            if(round>5)
+            {
+                diplayresult();
+            }
+            let perf = document.querySelector(".result")
+            perf.textContent= ('You win, '+ p + ' beats '+c );
+            pscore+=1;
+            let serf = document.querySelector(".score")
+            serf.textContent = "Player Score: " + pscore + " Computer score: "+ cscore;
+            
+           
         } 
     else{
-        console.log("You have entered an invalid option")
+        perf.textContent= ("You have entered an invalid option")
     }  
         
-    //console.log("The consolidated no of wins:"+ `${count}`);//not sure of correct, let's see
+    
 } 
 
+
+function diplayresult()
+{
+    if(pscore>cscore)
+        pwin+=1;
+    else if(pscore<cscore)
+        cwin+=1;
+    else
+        {pwin=0;cwin=0}
+
+    let end = document.querySelector(".end")
+    if(pwin>cwin)
+        {end.textContent = "You have played 5 rounds. The winner is Player";
+        
+    }
+    else
+       { end.textContent="You have played 5 rounds. The winner is computer"
+    }
+}
+
 let m = computerSelection;
-//let n = playerSelection;
 
 
-//for (let i = 0; i < 5; i++) { //loops  times to indicate that there are  rounds, coudl give user more granularity on the number of games to be played
-   // playRound(m,n);
- // } 
 
+
+let x;
 
 function rockpaperscissor(n)
 {
     
-        playRound(m,n);
+        x=  playRound(m,n);
         
        
 }
 
-const div1 = document.createElement('div')
-const score = document.createTextNode('Your score is: '+ `${count}`)
-div1.appendChild(score)
-const men = document.querySelector('.f5')
-men.appendChild(div1)
 
 
 
@@ -88,6 +178,9 @@ paper.addEventListener('click', () => rockpaperscissor('paper'));
 
 const scissors = document.querySelector('.scissor');
 scissors.addEventListener('click', () => rockpaperscissor('scissors'));
+
+//const score = document.querySelector('.score');
+//score.addEventListener('click', () => showscore(x));
 
 
 

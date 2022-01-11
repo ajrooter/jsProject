@@ -1,4 +1,7 @@
 body
+{
+    background-color: cornflowerblue;
+}
 
 .f1,.f3,.f5
 {
@@ -23,10 +26,8 @@ img
     padding-bottom: 50px;
 }
 
-.btn
+.feed
 {
- display: flex;
- justify-content: space-between;
- align-content: center;
-
+    display: flex;
+    justify-content: space-evenly;
 }
